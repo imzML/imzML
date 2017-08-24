@@ -531,11 +531,19 @@
             <xs:annotation>
               <xs:documentation>All mass spectra and the acquisitions underlying them are described and attached here. Subsidiary data arrays are also both described and attached here.</xs:documentation>
             </xs:annotation>
+            <xs:unique name="SpectrumUniqueIndex">
+                <xs:selector xpath="./dx:spectrum" />
+                <xs:field xpath="@index" /> 
+            </xs:unique>
           </xs:element>
           <xs:element minOccurs="0" maxOccurs="1" name="chromatogramList" type="dx:ChromatogramListType">
             <xs:annotation>
               <xs:documentation>All chromatograms for this run.</xs:documentation>
             </xs:annotation>
+            <xs:unique name="ChromatogramUniqueIndex">
+                <xs:selector xpath="./dx:chromatogram" />
+                <xs:field xpath="@index" /> 
+            </xs:unique>
           </xs:element>
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required">
