@@ -11,7 +11,7 @@
       <xs:element minOccurs="0" name="referenceableParamGroupList" type="dx:ReferenceableParamGroupListType" />
       <xs:element minOccurs="0" name="sampleList" type="dx:SampleListType" />
       <xs:element name="softwareList" type="dx:SoftwareListType" />
-      <xs:element minOccurs="0" name="scanSettingsList" type="dx:ScanSettingsListType" />
+      <xs:element name="scanSettingsList" type="dx:ScanSettingsListType" />
       <xs:element name="instrumentConfigurationList" type="dx:InstrumentConfigurationListType" />
       <xs:element name="dataProcessingList" type="dx:DataProcessingListType" />
       <xs:element name="run" type="dx:RunType" />
