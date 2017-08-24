@@ -1041,7 +1041,7 @@
       <xs:selector xpath="./dx:run" />
       <xs:field xpath="@sampleRef" />
     </xs:keyref>
-    <xs:keyref name="KEYREF_SOFTWAREREF" refer="dx:KEY_SOFTWARE_ID">
+    <xs:keyref name="KEYREF_PROCESSINGMETHOD_SOFTWAREREF" refer="dx:KEY_SOFTWARE_ID">
       <xs:annotation>
         <xs:documentation>
           This is a reference to an instrument configuration in instrumentConfigurationList. It ensures that an id is present in the file and is one of the values defined in KEY_SOFTWARE_ID.
@@ -1101,7 +1101,7 @@
           This is a reference to an instrument configuration in instrumentConfigurationList. It ensures that an id is present in the file and is one of the values defined in KEY_IC_ID.
         </xs:documentation>
       </xs:annotation>
-      <xs:selector xpath="./dx:run/dx:spectrumList|./dx:run/dx:chromatogramList" />
+      <xs:selector xpath="./dx:run" />
       <xs:field xpath="@defaultInstrumentConfigurationRef" />
     </xs:keyref>
     <xs:keyref name="KEYREF_ICREF" refer="dx:KEY_IC_ID">
@@ -1112,6 +1112,57 @@
       </xs:annotation>
       <xs:selector xpath=".//dx:scan" />
       <xs:field xpath="@instrumentConfigurationRef" />
+    </xs:keyref>
+    
+    <!-- ADDED -->
+    <xs:keyref name="KEYREF_SOURCEFILEREF" refer="dx:KEY_SOURCEFILE_ID">
+      <xs:annotation>
+        <xs:documentation>
+          This is a reference to source file contained within this file. It ensures that an id is present in the file and is one of the values defined in KEY_SOURCEFILE_ID.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath=".//dx:sourceFileRef" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    
+    <xs:keyref name="KEYREF_IC_SCANSETTINGSREF" refer="dx:KEY_SCAN_SETTINGS_ID">
+      <xs:annotation>
+        <xs:documentation>
+          This is a reference to scan settings contained within this file. It ensures that an id is present in the file and is one of the values defined in KEY_SCAN_SETTINGS_ID.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="./dx:instrumentConfigurationList/dx:instrumentConfiguration" />
+      <xs:field xpath="@scanSettingsRef" />
+    </xs:keyref>
+    
+    <xs:keyref name="KEYREF_SOFTWAREREF" refer="dx:KEY_SOFTWARE_ID">
+      <xs:annotation>
+        <xs:documentation>
+          This is a reference to software contained within this file. It ensures that an id is present in the file and is one of the values defined in KEY_SOFTWARE_ID.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath=".//dx:softwareRef" />
+      <xs:field xpath="@ref" />
+    </xs:keyref>
+    
+    <xs:keyref name="KEYREF_RUN_SOURCEFILEREF" refer="dx:KEY_SOURCEFILE_ID">
+      <xs:annotation>
+        <xs:documentation>
+          This is a reference to source file contained within this file. It ensures that an id is present in the file and is one of the values defined in KEY_SOURCEFILE_ID.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="./dx:run" />
+      <xs:field xpath="@defaultSourceFileRef" />
+    </xs:keyref>
+    
+    <xs:keyref name="KEYREF_SPECTRUM_SOURCEFILEREF" refer="dx:KEY_SOURCEFILE_ID">
+      <xs:annotation>
+        <xs:documentation>
+          This is a reference to source file contained within this file. It ensures that an id is present in the file and is one of the values defined in KEY_SOURCEFILE_ID.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:selector xpath="./dx:run/dx:spectrumList/dx:spectrum" />
+      <xs:field xpath="@sourceFileRef" />
     </xs:keyref>
   </xs:element>
 </xs:schema>
