@@ -97,6 +97,7 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 id: IMS:1000014
 name: ibd data type
 def: "Encoding type of binary data, e.g. 32-bit integer." [COMPUTIS:IMS]
+is_a: MS:1000518 ! binary data type
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
