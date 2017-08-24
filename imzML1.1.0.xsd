@@ -785,7 +785,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="dx:ParamGroupType">
         <xs:sequence>
-          <xs:element name="binary" type="none">
+          <xs:element name="binary">
             <xs:annotation>
               <xs:documentation>This entry has to stay empty in the imzML format</xs:documentation>
             </xs:annotation>
