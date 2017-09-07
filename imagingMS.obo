@@ -159,17 +159,19 @@ relationship: has_units UO:0000017 ! Micrometer
 
 [Term]
 id: IMS:1000046
-name: pixel size
-def: "Describes the area of the sample presented by one pixel." [COMPUTIS:IMS]
+name: pixel size (x)
+def: "Describes the length of a pixel in the x dimension. If no y is explicitly specified, then this also describes the length of a pixel in the y dimension." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000004 ! Image
-relationship: has_units UO:0000047 ! Area Unit
+relationship: has_units UO:0000001 ! length unit
 
 [Term]
 id: IMS:1000047
-name: image shape
-def: "Describes the shape of the image." [COMPUTIS:IMS]
+name: pixel size y
+def: "Describes the length of a pixel in the y dimension." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000004 ! Image
+relationship: has_units UO:0000001 ! length unit
 
 [Term]
 id: IMS:1000048
@@ -246,6 +248,13 @@ def: "Describes the position of a subimage in the direction of the z-axis of the
 xref: value-type:xsd\:nonNegativeInteger "The allowed value-type for this CV term."
 is_a: IMS:1000005 ! Spectrum Position
 relationship: has_units UO:0000189 ! Count Unit
+
+[Term]
+id: IMS:1000058
+name: image shape
+def: "Describes the shape of the image." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1000004 ! image property
 
 [Term]
 id: IMS:1000070
