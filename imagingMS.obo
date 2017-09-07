@@ -487,6 +487,36 @@ def: "The starting point is at the top of the sample and the scanning happens in
 is_a: IMS:1000049 ! Line Scan Direction
 
 [Term]
+id: IMS:1000500
+name: conversion to imzML
+def: "Conversion of a file format to Mass Spectrometry Imaging imzML file format." [COMPUTIS:IMS]
+is_a: MS:1000530 ! file format conversion
+
+[Term]
+id: IMS:1000501
+name: imzMLParser
+def: "imzMLParser library for reading and writing imzML." [COMPUTIS:IMS]
+is_a: MS:1001457 ! data processing software
+
+[Term]
+id: IMS:1000502
+name: imzMLConverter
+def: "imzMLConverter software for conversion from proprietary formats to imzML." [COMPUTIS:IMS]
+is_a: MS:1001457 ! data processing software
+
+[Term]
+id: IMS:1000503
+name: imzMLValidator
+def: "imzMLValidator software for validation of imzML." [COMPUTIS:IMS]
+is_a: MS:1001457 ! data processing software
+
+[Term]
+id: IMS:1000504
+name: SpectralAnalysis
+def: "SpectralAnalysis software for visualisation, processing and multivariate analysis of spectral imaging data." [COMPUTIS:IMS]
+is_a: MS:1001457 ! data processing software
+
+[Term]
 id: IMS:1100000
 name: 8-bit integer
 def: "Signed 8-bit integer." [COMPUTIS:IMS]
