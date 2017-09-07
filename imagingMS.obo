@@ -1,6 +1,6 @@
 format-version: 1.2
 date: 08:09:2008 13:53
-saved-by: Thorsten Schramm
+saved-by: Alan Race
 auto-generated-by: OBO-Edit 1.101
 default-namespace: imagingMS.ontology
 remark: version: 0.9.1
@@ -12,6 +12,7 @@ remark: 091123 Added attributes for imaging laser shot method. Attribute "one wa
 remark: 091207 Added attributes for SIMS experiments
 remark: "subimage positions" parameters added for images which are composed of several subimages!
 remark: creator: Thorsten Schramm <thorsten.schramm@anorg.chemie.uni-giessen.de>
+remark: creator: Alan Race <alan.race@uni-bayreuth.de>
 import: https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
 
 [Term]
@@ -40,7 +41,7 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000004
-name: image
+name: image property
 def: "Sample properties only concerning imaging samples." [COMPUTIS:IMS]
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
@@ -88,9 +89,9 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000013
-name: unit
-def: "Terms to describe units" [COMPUTIS:IMS]
-relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
+name: charge density
+def: "A measure of electric charge, the amount of electric charge per unit area" [COMPUTIS:IMS]
+is_a: UO:0000000 ! unit
 
 [Term]
 id: IMS:1000014
@@ -326,13 +327,13 @@ is_a: IMS:1000011 ! laser shot mode
 
 [Term]
 id: IMS:1000120
-name: SIMS
+name: SIMS parameter
 def: "Parameters describing SIMS sources." [COMPUTIS:IMS]
 relationship: part_of IMS:1000012 ! Imaging Ion Source
 
 [Term]
 id: IMS:1000121
-name: DESI
+name: DESI parameter
 def: "Parameters describing DESI sources." [COMPUTIS:IMS]
 relationship: part_of IMS:1000012 ! Imaging Ion Source
 
@@ -344,9 +345,9 @@ is_a: IMS:1000013 ! unit
 
 [Term]
 id: IMS:1000131
-name: milliliter per minute
+name: milliliters per minute
 def: "A flow rate describes the throughput per time." [COMPUTIS:IMS]
-is_a: IMS:1000013 ! unit
+is_a: UO:0000270 ! volumetric flow rate unit
 
 [Term]
 id: IMS:1000141
@@ -560,7 +561,7 @@ name: solvent flowrate
 def: "Rate with which the solvent is flowing on the surface of the imaging object" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000121 ! DESI
-relationship: has_units IMS:1000131 ! milliliter per minute
+relationship: has_units UO:0000270 ! volumetric flow rate unit
 
 [Term]
 id: IMS:1005001
