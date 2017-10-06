@@ -473,7 +473,7 @@
       <xs:documentation>List with the descriptions of the acquisition settings applied prior to the start of data acquisition.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="scanSettings" type="dx:ScanSettingsType" />
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="scanSettings" type="dx:ScanSettingsType" />
     </xs:sequence>
     <xs:attribute name="count" type="xs:nonNegativeInteger" use="required">
       <xs:annotation>
@@ -634,7 +634,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="dx:ParamGroupType">
         <xs:sequence>
-          <xs:element maxOccurs="unbounded" name="scan" type="dx:ScanType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="scan" type="dx:ScanType" />
         </xs:sequence>
         <xs:attribute name="count" type="xs:nonNegativeInteger" use="required">
           <xs:annotation>
@@ -824,7 +824,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="dx:ParamGroupType">
         <xs:sequence>
-          <xs:element minOccurs="0" name="scanList" type="dx:ScanListType" />
+          <xs:element minOccurs="1" name="scanList" type="dx:ScanListType" />
           <xs:element minOccurs="0" maxOccurs="1" name="precursorList" type="dx:PrecursorListType" />
           <xs:element minOccurs="0" maxOccurs="1" name="productList" type="dx:ProductListType" />
           <xs:element minOccurs="0" maxOccurs="1" name="binaryDataArrayList" type="dx:BinaryDataArrayListType" />
