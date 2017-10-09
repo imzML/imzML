@@ -619,7 +619,7 @@ relationship: has_units UO:0000270 ! volumetric flow rate unit
 [Term]
 id: IMS:1002000
 name: analysed sample portion
-def: "??" [COMPUTIS:IMS]
+def: "Description of how much of the sample was analysed." [COMPUTIS:IMS]
 relationship: part_of MS:1000548 ! sample attribute
 
 [Term]
@@ -643,75 +643,80 @@ relationship: part_of MS:1000548 ! sample attribute
 [Term]
 id: IMS:1002011
 name: fixed
-def: "" [COMPUTIS:IMS]
+def: "Sample has undergone a fixation process." [COMPUTIS:IMS]
 is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002012
 name: fresh
-def: "" [COMPUTIS:IMS]
+def: "No sample storage procedure has been performed." [COMPUTIS:IMS]
 is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002013
 name: embedded
-def: "" [COMPUTIS:IMS]
+def: "Sample has undergone an embedding procedure." [COMPUTIS:IMS]
 is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002100
 name: sectioning method
-def: "" [COMPUTIS:IMS]
+def: "Description of the method used to section the sample." [COMPUTIS:IMS]
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002101
 name: cryomicrotome sectioning
-def: "" [COMPUTIS:IMS]
+def: "Cryomicrotome used to perform sectioning." [COMPUTIS:IMS]
 relationship: part_of IMS:1002100 ! sectioning method
 
 [Term]
 id: IMS:1002102
 name: cryomicrotome model
-def: "" [COMPUTIS:IMS]
+def: "Specific cryomicrotome model used to perform sectioning." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1002101 ! cryomicrotome sectioning
 
 [Term]
 id: IMS:1002103
 name: cryomicrotome sectioning attribute
-def: "" [COMPUTIS:IMS]
+def: "Properties of the cryomicrotome sectioning process with an associated value." [COMPUTIS:IMS]
 relationship: part_of IMS:1002101 ! cryomicrotome sectioning
 
 [Term]
 id: IMS:1002104
 name: cutting temperature
-def: "" [COMPUTIS:IMS]
+def: "Temperature of the sample when the sectioning was performed." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002103 ! cryomicrotome sectioning attribute
+relationship: has_units UO:0000027 ! degree Celsius
+relationship: has_units UO:0000012 ! kelvin
 
 [Term]
 id: IMS:1002105
 name: cutting thickness
-def: "" [COMPUTIS:IMS]
+def: "Thickness of the section as set on the cryomicrotome." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002103 ! cryomicrotome sectioning attribute
+relationship: has_units UO:0000017 ! micrometer
 
 [Term]
 id: IMS:1002200
 name: mounting method
-def: "" [COMPUTIS:IMS]
+def: "Description of the method used to mount the sample onto the target." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002201
 name: thaw mounting
-def: "" [COMPUTIS:IMS]
+def: "Mounting the sample onto the target by warming the reverse of the target." [COMPUTIS:IMS]
 is_a IMS:1002200 ! mounting method
 
 [Term]
 id: IMS:1002300
 name: drying method
-def: "" [COMPUTIS:IMS]
+def: "Description of the method used to dry the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of MS:1000831 ! sample preparation
 
