@@ -373,11 +373,17 @@ is_a: IMS:1000014 ! ibd data type
 is_obsolete: true
 
 [Term]
+id: IMS:1000199
+name: sample stage attribute
+def: "Properties related to and describing the sample stage." [COMPUTIS:IMS]
+relationship: part_of IMS:1000002 ! Sample Stage
+
+[Term]
 id: IMS:1000200
 name: position accuracy
 def: "Accuracy is the degree of conformity of a measured position to its actual value." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
-is_a: IMS:1000002 ! Sample Stage
+is_a: IMS:1000199 ! sample stage attribute
 relationship: has_units UO:0000187 ! Percent
 
 [Term]
@@ -385,7 +391,7 @@ id: IMS:1000201
 name: step size
 def: "Specify the range between two different messuring points on the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
-is_a: IMS:1000002 ! Sample Stage
+is_a: IMS:1000199 ! sample stage attribute
 relationship: has_units UO:0000017 ! Micrometer
 
 [Term]
@@ -393,7 +399,15 @@ id: IMS:1000202
 name: target material
 def: "Describes the material the target is made of." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-is_a: IMS:1000002 ! Sample Stage
+relationship: part_of IMS:1000002 ! Sample Stage
+
+[Term]
+id: IMS:1000203
+name: stage scan speed
+def: "." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1000199 ! sample stage attribute
+relationship: has_units UO:0000094 ! meter per second
 
 [Term]
 id: IMS:1000400
@@ -597,10 +611,132 @@ relationship: has_units UO:0000248 ! kilovolt
 [Term]
 id: IMS:1001213
 name: solvent flowrate
-def: "Rate with which the solvent is flowing on the surface of the imaging object" [COMPUTIS:IMS]
+def: "Rate with which the solvent is flowing on the surface of the imaging object." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000121 ! DESI
 relationship: has_units UO:0000270 ! volumetric flow rate unit
+
+[Term]
+id: IMS:1002000
+name: analysed sample portion
+def: "??" [COMPUTIS:IMS]
+relationship: part_of MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1002001
+name: sectioned sample
+def: "Analysis performed on a section of the sample." [COMPUTIS:IMS]
+is_a: IMS:1002000 ! analysed sample portion
+
+[Term]
+id: IMS:1002002
+name: whole sample
+def: "Analysis performed on entire sample." [COMPUTIS:IMS]
+is_a: IMS:1002000 ! analysed sample portion
+
+[Term]
+id: IMS:1002010
+name: sample storage condition
+def: "Storage condition of the sample prior to analysis." [COMPUTIS:IMS]
+relationship: part_of MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1002011
+name: fixed
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002010 ! sample storage condition
+
+[Term]
+id: IMS:1002012
+name: fresh
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002010 ! sample storage condition
+
+[Term]
+id: IMS:1002013
+name: embedded
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002010 ! sample storage condition
+
+[Term]
+id: IMS:1002100
+name: sectioning method
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002101
+name: cryomicrotome sectioning
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002100 ! sectioning method
+
+[Term]
+id: IMS:1002102
+name: cryomicrotome model
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002101 ! cryomicrotome sectioning
+
+[Term]
+id: IMS:1002103
+name: cryomicrotome sectioning attribute
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002101 ! cryomicrotome sectioning
+
+[Term]
+id: IMS:1002104
+name: cutting temperature
+def: "" [COMPUTIS:IMS]
+is_a IMS:1002103 ! cryomicrotome sectioning attribute
+
+[Term]
+id: IMS:1002105
+name: cutting thickness
+def: "" [COMPUTIS:IMS]
+is_a IMS:1002103 ! cryomicrotome sectioning attribute
+
+[Term]
+id: IMS:1002200
+name: mounting method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002201
+name: thaw mounting
+def: "" [COMPUTIS:IMS]
+is_a IMS:1002200 ! mounting method
+
+[Term]
+id: IMS:1002300
+name: drying method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002301
+name: drying method attribute
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002300 ! drying method
+
+[Term]
+id: IMS:1002302
+name: drying time
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a IMS:1002301 ! drying method attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+
+[Term]
+id: IMS:1002400
+name: washing method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1005001

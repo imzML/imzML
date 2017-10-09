@@ -1,0 +1,155 @@
+<rules>
+	<CvReferenceList>
+		<CvReference cvName="IMS" cvIdentifier="IMS"/>
+		<CvReference cvName="PSI-MS" cvIdentifier="MS"/>
+		<CvReference cvName="Brenda" cvIdentifier="BTO"/>
+		<CvReference cvName="GO" cvIdentifier="GO"/>
+		<CvReference cvName="PATO" cvIdentifier="PATO"/>
+		<CvReference cvName="UO" cvIdentifier="UO"/>    
+    </CvReferenceList>
+	
+	<ruleCollections>
+		<ruleCollection id="sample">
+			<CvMappingRule id="sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<!-- mounting substrate IMS:1000202 -->
+				<!-- mounting method IMS:1002200 -->
+				<!-- IMS:1002000 analysed sample portion -->
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="biological_sample">
+			<CvMappingRule id="biological_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<!-- origin institution -->
+				<!-- ethical approval -->
+				<!-- specimen species -->
+				<!-- specimen age -->
+				<!-- specimen sex -->
+				<!-- specimen organ -->
+				<!-- fixed/fresh/embedded IMS:1002010 one or more -->
+			</CvMappingRule>
+		</ruleCollection>
+	
+		<ruleCollection id="sectioned_sample">
+			<CvMappingRule id="sectioned_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002102" useTerm="true" termName="cryomicrotome model" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002104" useTerm="true" termName="cutting temperature" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002105" useTerm="true" termName="cutting thickness" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="dried_sample">
+			<CvMappingRule id="dried_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002300" useTerm="true" termName="drying method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002302" useTerm="true" termName="dtying time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="washed_sample">
+			<CvMappingRule id="washed_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<!-- wash solution(s) -->
+				<!-- washing method IMS:1002400 -->
+			</CvMappingRule>
+		</ruleCollection>
+	
+		<ruleCollection id="laser">
+			<CvMappingRule id="source_laser_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="MS:1000842" useTerm="false" termName="laser type" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="PATO:0001242" useTerm="true" termName="wavelength" isRepeatable="false" allowChildren="true" cvIdentifierRef="PATO"/>
+				<CvTerm termAccession="MS:1000844" useTerm="true" termName="focus diameter x" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="MS:1000845" useTerm="true" termName="focus diameter y" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<!-- shots per pixel -->
+				<!-- repetition rate -->
+			</CvMappingRule>
+			<CvMappingRule id="source_laser_should" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="SHOULD" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="MS:1000846" useTerm="true" termName="pulse energy" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="MS:1000847" useTerm="true" termName="pulse duration" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="MS:1000848" useTerm="true" termName="impact angle" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="matrix">
+			<CvMappingRule id="source_matrix_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="MS:1000833" useTerm="false" termName="matrix application type" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="MS:1000835" useTerm="true" termName="matrix solution concentration" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<!-- matrix compound MS:1000834 -->
+				<!-- solvent system -->
+			</CvMappingRule>
+		</ruleCollection>
+	</ruleCollections>
+	
+	<if> <!-- GENERAL -->
+		<conditions combinationLogic="OR">
+		</conditions>
+		<statements>
+			<!-- resolution -->
+			<!-- method for generating resolution -->
+			<!-- mass at which resolution was calculated -->
+			<CvMappingRule id="source_general_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1000011" useTerm="false" termName="probe mode" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+			<includeRuleCollection id="sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Sectioned Sample -->
+		<conditions combinationLogic="OR">
+			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002001" termName="sectioned sample" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="sectioned_sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Continuous raster mode -->
+		<conditions combinationLogic="OR">
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="IMS:1000111" termName="raster mode" />
+		</conditions>
+		<statements>
+			<CvMappingRule id="source_continuous_raster_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1000203" useTerm="true" termName="stage scan speed" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+			</CvMappingRule>				
+		</statements>
+	</if>
+	
+	<if> <!-- MALDI -->
+		<conditions combinationLogic="OR"> <!-- combinationLogic = OR, AND, XOR -->
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1000075" termName="matrix-assisted laser desorption ionization" /> <!-- exists = none, term, child -->
+		</conditions>
+		<statements>
+			<includeRuleCollection id="laser" />
+			<includeRuleCollection id="matrix" />
+		</statements>
+	</if>
+	
+	<if> <!-- DESI -->
+		<conditions combinationLogic="OR"> <!-- combinationLogic = OR, AND, XOR -->
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1002011" termName="desorption electrospray ionization" /> <!-- exists = none, term, child -->
+		</conditions>
+		<statements>
+			<!-- stage scan speed IMS:1000203 -->
+			<!-- IMS:1000121 DESI parameter -->
+		</statements>
+	</if>
+	
+	<if> <!-- SIMS -->
+		<conditions combinationLogic="OR"> <!-- combinationLogic = OR, AND, XOR -->
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1000402" termName="secondary ionization" /> <!-- exists = none, term, child -->
+		</conditions>
+		<statements>
+			<!-- IMS:1000120 SIMS parameter -->
+		</statements>
+	</if>
+	
+	<if> <!-- Sprayed Matrix -->
+		<conditions combinationLogic="OR">
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1000838" termName="sprayed MALDI matrix preparation" /> <!-- exists = none, term, child -->
+		</conditions>
+		<statements>
+			<CvMappingRule id="source_sprayed_matrix_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<!-- Spraying device -->
+				<!-- Spraying settings: movement speed, flowrate, nozzel temperature -->
+			</CvMappingRule>
+		</statements>
+	</if>
+		
+</rules>
