@@ -6,7 +6,7 @@
 		<CvReference cvName="GO" cvIdentifier="GO"/>
 		<CvReference cvName="PATO" cvIdentifier="PATO"/>
 		<CvReference cvName="UO" cvIdentifier="UO"/>    
-    </CvReferenceList>
+	</CvReferenceList>
 	
 	<ruleCollections>
 		<ruleCollection id="sample">
@@ -14,6 +14,7 @@
 				<!-- mounting substrate IMS:1000202 -->
 				<!-- mounting method IMS:1002200 -->
 				<!-- IMS:1002000 analysed sample portion -->
+				<CvTerm termAccession="IMS:1002000" useTerm="false" termName="analysed sample portion" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
 		

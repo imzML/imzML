@@ -77,8 +77,8 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000011
-name: laser shot mode 
-def: "Describes the method how the laser was moved across the sample while firing." [COMPUTIS:IMS]
+name: probe mode 
+def: "Describes the method how the probe was moved across the sample while acquiring data." [COMPUTIS:IMS]
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
@@ -319,20 +319,20 @@ relationship: has_units UO:0000233 ! Byte
 [Term]
 id: IMS:1000110
 name: pixel mode
-def: "laser keeps the position while firing at the same same spot one or several times." [COMPUTIS:IMS]
-is_a: IMS:1000011 ! laser shot mode
+def: "probe keeps the position while acquiring data at the same same spot one or several times." [COMPUTIS:IMS]
+is_a: IMS:1000011 ! probe mode
 
 [Term]
 id: IMS:1000111
 name: raster mode
-def: "laser is moved while continuously firing at the sample." [COMPUTIS:IMS]
-is_a: IMS:1000011 ! laser shot mode
+def: "probe is moved while continuously acquiring data from the sample." [COMPUTIS:IMS]
+is_a: IMS:1000011 ! probe mode
 
 [Term]
 id: IMS:1000112
 name: stigmatic mode
-def: "laser is moved around one point firing until moved to the next position (pixel)." [COMPUTIS:IMS]
-is_a: IMS:1000011 ! laser shot mode
+def: "probe is moved around one point acquiring data until moved to the next position (pixel)." [COMPUTIS:IMS]
+is_a: IMS:1000011 ! probe mode
 
 [Term]
 id: IMS:1000120
@@ -389,7 +389,7 @@ relationship: has_units UO:0000187 ! Percent
 [Term]
 id: IMS:1000201
 name: step size
-def: "Specify the range between two different messuring points on the sample." [COMPUTIS:IMS]
+def: "Specify the distance between two different messuring points on the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000199 ! sample stage attribute
 relationship: has_units UO:0000017 ! Micrometer
@@ -404,7 +404,7 @@ relationship: part_of IMS:1000002 ! Sample Stage
 [Term]
 id: IMS:1000203
 name: stage scan speed
-def: "." [COMPUTIS:IMS]
+def: "Speed at which the stage moves." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000199 ! sample stage attribute
 relationship: has_units UO:0000094 ! meter per second
@@ -687,13 +687,13 @@ relationship: part_of IMS:1002101 ! cryomicrotome sectioning
 id: IMS:1002104
 name: cutting temperature
 def: "" [COMPUTIS:IMS]
-is_a IMS:1002103 ! cryomicrotome sectioning attribute
+is_a: IMS:1002103 ! cryomicrotome sectioning attribute
 
 [Term]
 id: IMS:1002105
 name: cutting thickness
 def: "" [COMPUTIS:IMS]
-is_a IMS:1002103 ! cryomicrotome sectioning attribute
+is_a: IMS:1002103 ! cryomicrotome sectioning attribute
 
 [Term]
 id: IMS:1002200
