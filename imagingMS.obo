@@ -617,6 +617,69 @@ is_a: IMS:1000121 ! DESI
 relationship: has_units UO:0000270 ! volumetric flow rate unit
 
 [Term]
+id: IMS:1001500
+name: sample type
+def: "Broad category describing the sample." [COMPUTIS:IMS]
+is_a: MS:1000547 ! object attribute
+relationship: part_of MS:1000457 ! sample
+
+[Term]
+id: IMS:1001510
+name: inorganic sample
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001500 ! sample type
+
+[Term]
+id: IMS:1001520
+name: organic sample
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001500 ! sample type
+
+[Term]
+id: IMS:1001521
+name: biological sample
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001520 ! organic sample
+
+[Term]
+id: IMS:1001522
+name: clinical sample
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001521 ! biological sample
+
+[Term]
+id: IMS:1001523
+name: pathological sample
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001522 ! clinical sample
+
+[Term]
+id: IMS:1001600
+name: sample origin attribute
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000457 ! sample
+
+[Term]
+id: IMS:1001601
+name: sample ethical approval
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1001600 ! sample origin attribute
+
+[Term]
+id: IMS:1001602
+name: sample origin institution
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1001600 ! sample origin attribute
+
+[Term]
+id: IMS:1001603
+name: undefined sample origin institution
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1001602 ! sample origin institution
+
+[Term]
 id: IMS:1002000
 name: analysed sample portion
 def: "Description of how much of the sample was analysed." [COMPUTIS:IMS]
@@ -644,19 +707,42 @@ relationship: part_of MS:1000548 ! sample attribute
 id: IMS:1002011
 name: fixed
 def: "Sample has undergone a fixation process." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002012
 name: fresh
 def: "No sample storage procedure has been performed." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002013
 name: embedded
 def: "Sample has undergone an embedding procedure." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002010 ! sample storage condition
+
+[Term]
+id: IMS:1002014
+name: sample storage attribute
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002010 ! sample storage condition
+
+[Term]
+id: IMS:1002015
+name: sample storage time
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1002014 ! sample storage attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+relationship: has_units UO:0000032 ! hour
+relationship: has_units UO:0000033 ! day
+relationship: has_units UO:0000034 ! week
+relationship: has_units UO:0000035 ! month
+relationship: has_units UO:0000036 ! year
 
 [Term]
 id: IMS:1002100
@@ -715,7 +801,7 @@ is_a IMS:1002200 ! mounting method
 
 [Term]
 id: IMS:1002300
-name: drying method
+name: sample drying
 def: "Description of the method used to dry the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of MS:1000831 ! sample preparation
@@ -724,7 +810,6 @@ relationship: part_of MS:1000831 ! sample preparation
 id: IMS:1002301
 name: drying method attribute
 def: "" [COMPUTIS:IMS]
-xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1002300 ! drying method
 
 [Term]
@@ -737,11 +822,151 @@ relationship: has_units UO:0000010 ! second
 relationship: has_units UO:0000031 ! minute
 
 [Term]
-id: IMS:1002400
-name: washing method
+id: IMS:1002303
+name: no drying performed
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002300 ! sample drying
+
+[Term]
+id: IMS:1002304
+name: sample drying method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002300 ! sample drying
+
+[Term]
+id: IMS:1002400
+name: sample washing
+def: "" [COMPUTIS:IMS]
 relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002401
+name: no washing performed
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002400 ! sample washing
+
+[Term]
+id: IMS:1002402
+name: sample washing method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002400 ! sample washing
+
+[Term]
+id: IMS:1002500
+name: on-sample chemistry
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002501
+name: no on-sample chemistry performed
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002500 ! on-sample chemistry
+
+[Term]
+id: IMS:1002502
+name: on-sample chemistry method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002500 ! on-sample chemistry
+
+[Term]
+id: IMS:1002503
+name: on-sample chemistry attribute
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002500 ! on-sample chemistry
+
+[Term]
+id: IMS:1002504
+name: on-sample chemistry reagent
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1002503 ! on-sample chemistry attribute
+
+[Term]
+id: IMS:1002600
+name: in-experiment quantification
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000831 ! sample preparation
+
+[Term]
+id: IMS:1002601
+name: no in-experiment quantification performed
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1002600 ! in-experiment quantification
+
+[Term]
+id: IMS:1002602
+name: in-experiment quantification method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002600 ! in-experiment quantification
+
+[Term]
+id: IMS:1002603
+name: internal standard quantification
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002602 ! in-experiment quantification method
+
+[Term]
+id: IMS:1002604
+name: adjacent dilution series quantification
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002602 ! in-experiment quantification method
+
+[Term]
+id: IMS:1003000
+name: spray method
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000838 ! sprayed MALDI matrix preparation
+
+[Term]
+id: IMS:1003001
+name: automated spraying of matrix
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1003000 ! spray method
+
+[Term]
+id: IMS:1003002
+name: manual spraying of matrix
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1003000 ! spray method
+
+[Term]
+id: IMS:1003003
+name: automated spraying device
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1003001 ! automated spraying of matrix
+
+[Term]
+id: IMS:1003004
+name: automated sprayer attribute
+def: "" [COMPUTIS:IMS]
+relationship: part_of IMS:1003001 ! automated spraying of matrix
+
+[Term]
+id: IMS:1003005
+name: automated sprayer nozzel movement speed
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1003004 ! automated spraying attribute
+
+[Term]
+id: IMS:1003006
+name: automated sprayer flowrate
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1003004 ! automated spraying attribute
+
+[Term]
+id: IMS:1003007
+name: automated sprayer nozzel temperature
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1005001

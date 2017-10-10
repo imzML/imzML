@@ -1,5 +1,6 @@
 <rules>
 	<CvReferenceList>
+		<!-- Might be better to include the URI of the ontologies -->
 		<CvReference cvName="IMS" cvIdentifier="IMS"/>
 		<CvReference cvName="PSI-MS" cvIdentifier="MS"/>
 		<CvReference cvName="Brenda" cvIdentifier="BTO"/>
@@ -11,22 +12,33 @@
 	<ruleCollections>
 		<ruleCollection id="sample">
 			<CvMappingRule id="sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<!-- mounting substrate IMS:1000202 -->
-				<!-- mounting method IMS:1002200 -->
-				<!-- IMS:1002000 analysed sample portion -->
+				<CvTerm termAccession="IMS:1002200" useTerm="true" termName="mounting method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1000202" useTerm="true" termName="target material" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002000" useTerm="false" termName="analysed sample portion" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1001500" useTerm="false" termName="sample type" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002300" useTerm="false" termName="sample drying" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002400" useTerm="false" termName="sample washing" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002500" useTerm="false" termName="on-sample chemistry" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002600" useTerm="false" termName="in-experiment quantification" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
 		
 		<ruleCollection id="biological_sample">
 			<CvMappingRule id="biological_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<!-- origin institution -->
-				<!-- ethical approval -->
+				<!-- Move the below to "sample"? -->
+				<CvTerm termAccession="IMS:1001602" useTerm="false" termName="sample origin institution" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1001601" useTerm="true" termName="sample ethical approval" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<!-- specimen species -->
-				<!-- specimen age -->
-				<!-- specimen sex -->
 				<!-- specimen organ -->
-				<!-- fixed/fresh/embedded IMS:1002010 one or more -->
+				<CvTerm termAccession="PATO:0000047" useTerm="false" termName="biological sex" isRepeatable="false" allowChildren="true" cvIdentifierRef="PATO"/>
+				<!-- probably need to change the below to a new term in the IMS obo so we can have a value and units -->
+				<CvTerm termAccession="PATO:0000011" useTerm="true" termName="age" isRepeatable="false" allowChildren="false" cvIdentifierRef="PATO"/>
+				<CvTerm termAccession="IMS:1002010" useTerm="false" termName="sample storage condition" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
+				<!-- sampling method -->
+				<!-- postmortem time -->
+				<!-- stabilisation -->
+				<!-- freezing method -->
+				<!-- storage time IMS:1002014 -->
 			</CvMappingRule>
 		</ruleCollection>
 	
@@ -40,15 +52,30 @@
 		
 		<ruleCollection id="dried_sample">
 			<CvMappingRule id="dried_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<CvTerm termAccession="IMS:1002300" useTerm="true" termName="drying method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1002302" useTerm="true" termName="dtying time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002304" useTerm="true" termName="sample drying method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002302" useTerm="true" termName="drying time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
 		
 		<ruleCollection id="washed_sample">
 			<CvMappingRule id="washed_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002402" useTerm="true" termName="sample washing method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<!-- wash solution(s) -->
-				<!-- washing method IMS:1002400 -->
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="on_sample_chemistry">
+			<CvMappingRule id="on_sample_chemistry_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002502" useTerm="true" termName="on-sample chemistry method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+			<CvMappingRule id="on_sample_chemistry_should" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="SHOULD" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002504" useTerm="true" termName="on-sample chemistry reagent" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+		</ruleCollection>
+		
+		<ruleCollection id="in_experiment_quantification">
+			<CvMappingRule id="in_experiment_quantification_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002602" useTerm="true" termName="in-experiment quantification method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
 	
@@ -89,6 +116,51 @@
 				<CvTerm termAccession="IMS:1000011" useTerm="false" termName="probe mode" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 			<includeRuleCollection id="sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Biological Sample -->
+		<conditions combinationLogic="OR">
+			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1001521" termName="biological sample" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="biological_sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Washed Sample -->
+		<conditions combinationLogic="OR">
+			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002402" termName="sample washing method" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="washed_sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Dried Sample -->
+		<conditions combinationLogic="OR">
+			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002304" termName="sample drying method" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="dried_sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- On-Sample Chemistry -->
+		<conditions combinationLogic="OR">
+			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002502" termName="on-sample chemistry method" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="on_sample_chemistry" />
+		</statements>
+	</if>
+	
+	<if> <!-- In-Experiment Quantification -->
+		<conditions combinationLogic="OR">
+			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002602" termName="in-experiment quantification method" />
+		</conditions>
+		<statements>
+			<includeRuleCollection id="in_experiment_quantification" />
 		</statements>
 	</if>
 	
@@ -147,8 +219,21 @@
 		</conditions>
 		<statements>
 			<CvMappingRule id="source_sprayed_matrix_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
-				<!-- Spraying device -->
-				<!-- Spraying settings: movement speed, flowrate, nozzel temperature -->
+				<CvTerm termAccession="IMS:1003000" useTerm="false" termName="spraying method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+		</statements>
+	</if>
+			
+	<if> <!-- Automated Sprayed Matrix -->
+		<conditions combinationLogic="OR">
+			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="IMS:1003001" termName="automated spraying of matrix" /> <!-- exists = none, term, child -->
+		</conditions>
+		<statements>
+			<CvMappingRule id="source_automated_sprayed_matrix_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">		
+				<CvTerm termAccession="IMS:1003003" useTerm="true" termName="automated spraying device" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1003005" useTerm="true" termName="automated sprayer nozzel movement speed" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1003006" useTerm="true" termName="automated sprayer flowrate" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1003007" useTerm="true" termName="automated sprayer nozzel temperature" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</statements>
 	</if>
