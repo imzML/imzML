@@ -712,8 +712,8 @@ is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002012
-name: fresh
-def: "No sample storage procedure has been performed." [COMPUTIS:IMS]
+name: frozen
+def: "Sample has been frozen." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002010 ! sample storage condition
 
@@ -743,6 +743,28 @@ relationship: has_units UO:0000033 ! day
 relationship: has_units UO:0000034 ! week
 relationship: has_units UO:0000035 ! month
 relationship: has_units UO:0000036 ! year
+
+[Term]
+id: IMS:1002016
+name: sample storage temperature
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1002014 ! sample storage attribute
+relationship: has_units UO:0000027 ! degree Celsius
+relationship: has_units UO:0000012 ! kelvin
+
+[Term]
+id: IMS:1002016
+name: freezing method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002012 ! frozen
+
+[Term]
+id: IMS:1002017
+name: flash frozen
+def: "Flash frozen by slow immersion in liquid nitrogen cooled isopentane." [COMPUTIS:IMS]
+is_a: IMS:1002016 ! freezing method
 
 [Term]
 id: IMS:1002100
@@ -918,7 +940,7 @@ is_a: IMS:1002602 ! in-experiment quantification method
 
 [Term]
 id: IMS:1003000
-name: spray method
+name: spraying method
 def: "" [COMPUTIS:IMS]
 relationship: part_of MS:1000838 ! sprayed MALDI matrix preparation
 
@@ -973,3 +995,41 @@ id: IMS:1005001
 name: xz compression
 def: "XZ." [COMPUTIS:IMS]
 is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1006000
+name: repetition rate
+def: "Describes the number of pulses per second when a laser is operating in pulsed mode." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000841 ! laser attribute
+relationship: has_units UO:0000106 ! hertz
+
+[Term]
+id: IMS:1006001
+name: laser shots per spectrum
+def: "Describes the number of laser pulses interrogating the sample to generate a single spectrum." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000841 ! laser attribute
+
+[Term]
+id: IMS:1006002
+name: m/z at which resolution was measured
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+relationship: part_of MS:1000012 ! resolution measurement method
+relationship: has_units MS:1000040 ! m/z
+
+[Term]
+id: IMS:1006003
+name: postmortem time
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+relationship: has_units UO:0000032 ! hour
+relationship: has_units UO:0000033 ! day
+relationship: has_units UO:0000034 ! week
+relationship: has_units UO:0000035 ! month
+relationship: has_units UO:0000036 ! year
+

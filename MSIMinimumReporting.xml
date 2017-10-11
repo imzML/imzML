@@ -25,23 +25,23 @@
 		
 		<ruleCollection id="biological_sample">
 			<CvMappingRule id="biological_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<!-- Move the below to "sample"? -->
+				<!-- Move the below CvTerm to "sample"? -->
 				<CvTerm termAccession="IMS:1001602" useTerm="false" termName="sample origin institution" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1001601" useTerm="true" termName="sample ethical approval" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<!-- specimen species -->
-				<!-- specimen organ -->
+				<!-- specimen species: ncbitaxon.obo? but is large -->
+				<!-- specimen organ: BTO ontology -->
 				<CvTerm termAccession="PATO:0000047" useTerm="false" termName="biological sex" isRepeatable="false" allowChildren="true" cvIdentifierRef="PATO"/>
 				<!-- probably need to change the below to a new term in the IMS obo so we can have a value and units -->
 				<CvTerm termAccession="PATO:0000011" useTerm="true" termName="age" isRepeatable="false" allowChildren="false" cvIdentifierRef="PATO"/>
 				<CvTerm termAccession="IMS:1002010" useTerm="false" termName="sample storage condition" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
-				<!-- sampling method -->
-				<!-- postmortem time -->
-				<!-- stabilisation -->
-				<!-- freezing method -->
-				<!-- storage time IMS:1002014 -->
+				<!-- sampling method - what does this refer to? -->
+				<!-- postmortem time - is this the time at which the organ(s) were harvested postmortem? or length of time analysis takes place postmortem -->
+				<CvTerm termAccession="IMS:1006003" useTerm="true" termName="postmortem time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<!-- stabilisation - is this applicable to all biological samples? -->
+				<CvTerm termAccession="IMS:1002015" useTerm="true" termName="sample storage time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
-	
+			
 		<ruleCollection id="sectioned_sample">
 			<CvMappingRule id="sectioned_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
 				<CvTerm termAccession="IMS:1002102" useTerm="true" termName="cryomicrotome model" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
@@ -85,8 +85,8 @@
 				<CvTerm termAccession="PATO:0001242" useTerm="true" termName="wavelength" isRepeatable="false" allowChildren="true" cvIdentifierRef="PATO"/>
 				<CvTerm termAccession="MS:1000844" useTerm="true" termName="focus diameter x" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
 				<CvTerm termAccession="MS:1000845" useTerm="true" termName="focus diameter y" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
-				<!-- shots per pixel -->
-				<!-- repetition rate -->
+				<CvTerm termAccession="IMS:1006000" useTerm="true" termName="repetition rate" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1006001" useTerm="true" termName="laser shots per spectrum" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 			<CvMappingRule id="source_laser_should" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="SHOULD" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
 				<CvTerm termAccession="MS:1000846" useTerm="true" termName="pulse energy" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
@@ -99,8 +99,8 @@
 			<CvMappingRule id="source_matrix_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
 				<CvTerm termAccession="MS:1000833" useTerm="false" termName="matrix application type" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
 				<CvTerm termAccession="MS:1000835" useTerm="true" termName="matrix solution concentration" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
-				<!-- matrix compound MS:1000834 -->
-				<!-- solvent system -->
+				<CvTerm termAccession="MS:1000834" useTerm="true" termName="matrix solution" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
+				<!-- solvent system? covered within matrix solution? -->
 			</CvMappingRule>
 		</ruleCollection>
 	</ruleCollections>
@@ -109,22 +109,36 @@
 		<conditions combinationLogic="OR">
 		</conditions>
 		<statements>
-			<!-- resolution -->
-			<!-- method for generating resolution -->
-			<!-- mass at which resolution was calculated -->
 			<CvMappingRule id="source_general_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
 				<CvTerm termAccession="IMS:1000011" useTerm="false" termName="probe mode" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
+			<CvMappingRule id="detector_general_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/detector/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/detector" cvTermsCombinationLogic="AND">
+				<!-- is this the correct place for this? correct terms? there's one for spectrum resolution rather than detector -->
+				<CvTerm termAccession="MS:1000012" useTerm="false" termName="resolution measurement method" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="MS:1000028" useTerm="true" termName="detector resolution" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
+				<CvTerm termAccession="IMS:1006002" useTerm="true" termName="m/z at which resolution was measured" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 			<includeRuleCollection id="sample" />
 		</statements>
 	</if>
-	
+		
 	<if> <!-- Biological Sample -->
 		<conditions combinationLogic="OR">
 			<condition exists="CHILD" scopePath="/mzML/sampleList/sample" termAccession="IMS:1001521" termName="biological sample" />
 		</conditions>
 		<statements>
 			<includeRuleCollection id="biological_sample" />
+		</statements>
+	</if>
+	
+	<if> <!-- Frozen Sample -->
+		<conditions combinationLogic="OR">
+			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002012" termName="frozen" />
+		</conditions>
+		<statements>
+			<CvMappingRule id="frozen_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1002016" useTerm="true" termName="freezing method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+			</CvMappingRule>
 		</statements>
 	</if>
 	
@@ -199,8 +213,11 @@
 			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1002011" termName="desorption electrospray ionization" /> <!-- exists = none, term, child -->
 		</conditions>
 		<statements>
-			<!-- stage scan speed IMS:1000203 -->
-			<!-- IMS:1000121 DESI parameter -->
+			<CvMappingRule id="source_desi_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
+				<CvTerm termAccession="IMS:1000203" useTerm="true" termName="stage scan speed" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<!-- IMS:1000121 DESI parameter -->
+			</CvMappingRule>
+			
 		</statements>
 	</if>
 	
