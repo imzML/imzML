@@ -26,7 +26,7 @@
 		<ruleCollection id="biological_sample">
 			<CvMappingRule id="biological_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
 				<!-- Move the below CvTerm to "sample"? -->
-				<CvTerm termAccession="IMS:1001602" useTerm="false" termName="sample origin institution" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1001602" useTerm="true" termName="sample origin institution" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1001601" useTerm="true" termName="sample ethical approval" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<!-- specimen species: ncbitaxon.obo? but is large -->
 				<!-- specimen organ: BTO ontology -->

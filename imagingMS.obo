@@ -677,7 +677,6 @@ def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001600 ! sample origin attribute
 
-
 [Term]
 id: IMS:1002000
 name: analysed sample portion
@@ -799,20 +798,20 @@ def: "" [COMPUTIS:IMS]
 is_a: IMS:1002050 ! stabilisation
 
 [Term]
-id: IMS:1002051
+id: IMS:1002052
 name: stabilisation method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002050 ! stabilisation
 
 [Term]
-id: IMS:1002052
+id: IMS:1002053
 name: rapid heating stabilisation
 def: "" [COMPUTIS:IMS]
 is_a: IMS:1002051 ! stabilisation method
 
 [Term]
-id: IMS:1002053
+id: IMS:1002054
 name: focused microwave irradiation stabilisation
 def: "" [COMPUTIS:IMS]
 is_a: IMS:1002051 ! stabilisation method
