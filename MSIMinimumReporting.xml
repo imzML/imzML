@@ -34,10 +34,9 @@
 				<!-- probably need to change the below to a new term in the IMS obo so we can have a value and units -->
 				<CvTerm termAccession="PATO:0000011" useTerm="true" termName="age" isRepeatable="false" allowChildren="false" cvIdentifierRef="PATO"/>
 				<CvTerm termAccession="IMS:1002010" useTerm="false" termName="sample storage condition" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
-				<!-- sampling method - what does this refer to? -->
-				<!-- postmortem time - is this the time at which the organ(s) were harvested postmortem? or length of time analysis takes place postmortem -->
+				<CvTerm termAccession="IMS:1002005" useTerm="true" termName="sampling method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006003" useTerm="true" termName="postmortem time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
-				<!-- stabilisation - is this applicable to all biological samples? -->
+				<CvTerm termAccession="IMS:1002050" useTerm="false" termName="stabilisation" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002015" useTerm="true" termName="sample storage time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
@@ -137,7 +136,7 @@
 		</conditions>
 		<statements>
 			<CvMappingRule id="frozen_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<CvTerm termAccession="IMS:1002016" useTerm="true" termName="freezing method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002018" useTerm="true" termName="freezing method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</statements>
 	</if>

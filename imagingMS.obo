@@ -41,7 +41,7 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000004
-name: image property
+name: image parameter
 def: "Sample properties only concerning imaging samples." [COMPUTIS:IMS]
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
@@ -77,7 +77,7 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000011
-name: probe mode 
+name: probe scan mode 
 def: "Describes the method how the probe was moved across the sample while acquiring data." [COMPUTIS:IMS]
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
@@ -89,17 +89,26 @@ relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
 
 [Term]
 id: IMS:1000013
-name: charge density
-def: "A measure of electric charge, the amount of electric charge per unit area" [COMPUTIS:IMS]
-is_a: UO:0000000 ! unit
+name: unit
+def: "OBSOLETE Terms to describe units" [COMPUTIS:IMS]
+relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
+comment: This is unneccessary as UO:0000000 (unit) exists, so was made obsolete.
+is_obsolete: true
 
 [Term]
 id: IMS:1000014
 name: ibd data type
-def: "Encoding type of binary data, e.g. 32-bit integer." [COMPUTIS:IMS]
+def: "OBSOLETE Encoding type of binary data, e.g. 32-bit integer." [COMPUTIS:IMS]
 is_a: MS:1000518 ! binary data type
 relationship: part_of IMS:0000000 ! Imaging Mass Spectrometry Ontology
+comment: Binary data type (MS:1000518) exists in PSI ontology so making this obsolete.
 is_obsolete: true
+
+[Term]
+id: IMS:1000015
+name: charge density
+def: "A measure of electric charge, the amount of electric charge per unit area" [COMPUTIS:IMS]
+is_a: UO:0000000 ! unit
 
 [Term]
 id: IMS:1000030
@@ -160,7 +169,7 @@ relationship: has_units UO:0000017 ! Micrometer
 [Term]
 id: IMS:1000046
 name: pixel size (x)
-def: "Describes the length of a pixel in the x dimension. If no y is explicitly specified, then this also describes the length of a pixel in the y dimension." [COMPUTIS:IMS]
+def: "Describes the length of a pixel in the x dimension. If no pixel size y (IMS:1000047) is explicitly specified, then this also describes the length of a pixel in the y dimension." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1000004 ! Image
 relationship: has_units UO:0000001 ! length unit
@@ -248,13 +257,6 @@ def: "Describes the position of a subimage in the direction of the z-axis of the
 xref: value-type:xsd\:nonNegativeInteger "The allowed value-type for this CV term."
 is_a: IMS:1000005 ! Spectrum Position
 relationship: has_units UO:0000189 ! Count Unit
-
-[Term]
-id: IMS:1000058
-name: image shape
-def: "Describes the shape of the image." [COMPUTIS:IMS]
-xref: value-type:xsd\:string "The allowed value-type for this CV term."
-is_a: IMS:1000004 ! image property
 
 [Term]
 id: IMS:1000070
@@ -350,7 +352,7 @@ relationship: part_of IMS:1000012 ! Imaging Ion Source
 id: IMS:1000130
 name: ions per square centimeter
 def: "An area density unit which is equal to the count of ions divided by the area in centimeters squared." [COMPUTIS:IMS]
-is_a: IMS:1000013 ! unit
+is_a: IMS:1000015 ! charge density unit
 
 [Term]
 id: IMS:1000131
@@ -361,8 +363,9 @@ is_a: UO:0000270 ! volumetric flow rate unit
 [Term]
 id: IMS:1000141
 name: 32-bit integer
-def: "Signed 32 bit integer." [COMPUTIS:IMS]
+def: "OBSOLETE Signed 32 bit integer." [COMPUTIS:IMS]
 is_a: IMS:1000014 ! ibd data type
+comment: 32-bit integer (MS:1000519) exists in PSI obo so making obsolete.
 is_obsolete: true
 
 [Term]
@@ -370,6 +373,7 @@ id: IMS:1000142
 name: 64-bit integer
 def: "Signed 64 bit integer." [COMPUTIS:IMS]
 is_a: IMS:1000014 ! ibd data type
+comment: 64-bit integer (MS:1000520) exists in PSI obo so making obsolete.
 is_obsolete: true
 
 [Term]
@@ -670,14 +674,9 @@ is_a: IMS:1001600 ! sample origin attribute
 id: IMS:1001602
 name: sample origin institution
 def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001600 ! sample origin attribute
 
-[Term]
-id: IMS:1001603
-name: undefined sample origin institution
-def: "" [COMPUTIS:IMS]
-xref: value-type:xsd\:string "The allowed value-type for this CV term."
-is_a: IMS:1001602 ! sample origin institution
 
 [Term]
 id: IMS:1002000
@@ -696,6 +695,13 @@ id: IMS:1002002
 name: whole sample
 def: "Analysis performed on entire sample." [COMPUTIS:IMS]
 is_a: IMS:1002000 ! analysed sample portion
+
+[Term]
+id: IMS:1002005
+name: sampling method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of MS:1000457 ! sample
 
 [Term]
 id: IMS:1002010
@@ -732,7 +738,7 @@ relationship: part_of IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002015
-name: sample storage time
+name: sample storage time before sectioning
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002014 ! sample storage attribute
@@ -746,6 +752,20 @@ relationship: has_units UO:0000036 ! year
 
 [Term]
 id: IMS:1002016
+name: sample storage time after sectioning and before analysis
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1002014 ! sample storage attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+relationship: has_units UO:0000032 ! hour
+relationship: has_units UO:0000033 ! day
+relationship: has_units UO:0000034 ! week
+relationship: has_units UO:0000035 ! month
+relationship: has_units UO:0000036 ! year
+
+[Term]
+id: IMS:1002017
 name: sample storage temperature
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
@@ -754,17 +774,48 @@ relationship: has_units UO:0000027 ! degree Celsius
 relationship: has_units UO:0000012 ! kelvin
 
 [Term]
-id: IMS:1002016
+id: IMS:1002018
 name: freezing method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1002012 ! frozen
 
 [Term]
-id: IMS:1002017
+id: IMS:1002019
 name: flash frozen
 def: "Flash frozen by slow immersion in liquid nitrogen cooled isopentane." [COMPUTIS:IMS]
 is_a: IMS:1002016 ! freezing method
+
+[Term]
+id: IMS:1002050
+name: stabilisation
+def: "" [COMPUTIS:IMS]
+relationship: part_of MS:1000457 ! sample
+
+[Term]
+id: IMS:1002051
+name: no stabilisation performed
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002050 ! stabilisation
+
+[Term]
+id: IMS:1002051
+name: stabilisation method
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1002050 ! stabilisation
+
+[Term]
+id: IMS:1002052
+name: rapid heating stabilisation
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002051 ! stabilisation method
+
+[Term]
+id: IMS:1002053
+name: focused microwave irradiation stabilisation
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002051 ! stabilisation method
 
 [Term]
 id: IMS:1002100
@@ -819,7 +870,14 @@ relationship: part_of MS:1000831 ! sample preparation
 id: IMS:1002201
 name: thaw mounting
 def: "Mounting the sample onto the target by warming the reverse of the target." [COMPUTIS:IMS]
-is_a IMS:1002200 ! mounting method
+is_a: IMS:1002200 ! mounting method
+
+[Term]
+id: IMS:1002202
+name: tape mounting
+def: "Mounting the sample onto the target using tape." [COMPUTIS:IMS]
+is_a: IMS:1002200 ! mounting method
+
 
 [Term]
 id: IMS:1002300
@@ -847,14 +905,14 @@ relationship: has_units UO:0000031 ! minute
 id: IMS:1002303
 name: no drying performed
 def: "" [COMPUTIS:IMS]
-relationship: part_of IMS:1002300 ! sample drying
+is_a: IMS:1002300 ! sample drying
 
 [Term]
 id: IMS:1002304
 name: sample drying method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-relationship: part_of IMS:1002300 ! sample drying
+is_a: IMS:1002300 ! sample drying
 
 [Term]
 id: IMS:1002400
@@ -866,14 +924,14 @@ relationship: part_of MS:1000831 ! sample preparation
 id: IMS:1002401
 name: no washing performed
 def: "" [COMPUTIS:IMS]
-relationship: part_of IMS:1002400 ! sample washing
+is_a: IMS:1002400 ! sample washing
 
 [Term]
 id: IMS:1002402
 name: sample washing method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-relationship: part_of IMS:1002400 ! sample washing
+is_a: IMS:1002400 ! sample washing
 
 [Term]
 id: IMS:1002500
@@ -885,14 +943,14 @@ relationship: part_of MS:1000831 ! sample preparation
 id: IMS:1002501
 name: no on-sample chemistry performed
 def: "" [COMPUTIS:IMS]
-relationship: part_of IMS:1002500 ! on-sample chemistry
+is_a: IMS:1002500 ! on-sample chemistry
 
 [Term]
 id: IMS:1002502
 name: on-sample chemistry method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-relationship: part_of IMS:1002500 ! on-sample chemistry
+is_a: IMS:1002500 ! on-sample chemistry
 
 [Term]
 id: IMS:1002503
@@ -917,14 +975,14 @@ relationship: part_of MS:1000831 ! sample preparation
 id: IMS:1002601
 name: no in-experiment quantification performed
 def: "" [COMPUTIS:IMS]
-relationship: part_of IMS:1002600 ! in-experiment quantification
+is_a: IMS:1002600 ! in-experiment quantification
 
 [Term]
 id: IMS:1002602
 name: in-experiment quantification method
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-relationship: part_of IMS:1002600 ! in-experiment quantification
+is_a: IMS:1002600 ! in-experiment quantification
 
 [Term]
 id: IMS:1002603
@@ -937,6 +995,13 @@ id: IMS:1002604
 name: adjacent dilution series quantification
 def: "" [COMPUTIS:IMS]
 is_a: IMS:1002602 ! in-experiment quantification method
+
+[Term]
+id: IMS:1002605
+name: sprayed-on standard quantification
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1002602 ! in-experiment quantification method
+
 
 [Term]
 id: IMS:1003000
