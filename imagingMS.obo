@@ -1,10 +1,8 @@
 format-version: 1.2
-date: 08:09:2008 13:53
+data-version: 1.1.0
+date: 04:01:2018 15:52
 saved-by: Alan Race
-auto-generated-by: OBO-Edit 1.101
 default-namespace: imagingMS.ontology
-remark: version: 0.9.1
-remark: release date: 2008-12-09
 remark: coverage: Imaging mass spectrometer output files
 remark: 090506 Matrix and Laser Attributes removed -> put into PSI-MS.OBO
 remark: 090506 "Attribute" in Term deleted and new entries: Scan Type, Line Scan Direction added
