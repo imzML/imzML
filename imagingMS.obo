@@ -14,6 +14,7 @@ remark: "subimage positions" parameters added for images which are composed of s
 remark: creator: Thorsten Schramm <thorsten.schramm@anorg.chemie.uni-giessen.de>
 remark: creator: Alan Race <alan.race@uni-bayreuth.de>
 import: https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo
+ontology: ims
 
 [Term]
 id: IMS:0000000
