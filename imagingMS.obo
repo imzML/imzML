@@ -1034,21 +1034,21 @@ relationship: part_of IMS:1003001 ! automated spraying of matrix
 
 [Term]
 id: IMS:1003005
-name: automated sprayer nozzel movement speed
+name: automated sprayer nozzle movement speed
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1003006
-name: automated sprayer flowrate
+name: automated sprayer flow-rate
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1003007
-name: automated sprayer nozzel temperature
+name: automated sprayer nozzle temperature
 def: "" [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute

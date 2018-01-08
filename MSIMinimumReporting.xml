@@ -12,10 +12,10 @@
 	<ruleCollections>
 		<ruleCollection id="sample">
 			<CvMappingRule id="sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<CvTerm termAccession="IMS:1002200" useTerm="true" termName="mounting method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1000202" useTerm="true" termName="target material" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1002000" useTerm="false" termName="analysed sample portion" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1001500" useTerm="false" termName="sample type" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002000" useTerm="false" termName="analysed sample portion" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1000202" useTerm="true" termName="target material" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1002200" useTerm="true" termName="mounting method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002300" useTerm="false" termName="sample drying" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002400" useTerm="false" termName="sample washing" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002500" useTerm="false" termName="on-sample chemistry" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
@@ -202,8 +202,8 @@
 			<condition exists="TERM" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" termAccession="MS:1000075" termName="matrix-assisted laser desorption ionization" /> <!-- exists = none, term, child -->
 		</conditions>
 		<statements>
-			<includeRuleCollection id="laser" />
 			<includeRuleCollection id="matrix" />
+			<includeRuleCollection id="laser" />
 		</statements>
 	</if>
 	
