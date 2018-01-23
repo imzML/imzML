@@ -190,7 +190,7 @@
 			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002002" termName="whole sample" />
 		</conditions>
 		<statements>
-			<includeRuleCollection id="sectioned_sample" />
+			<includeRuleCollection id="whole_sample" />
 		</statements>
 	</if>
 	
@@ -199,7 +199,7 @@
 			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002001" termName="sectioned sample" />
 		</conditions>
 		<statements>
-			<includeRuleCollection id="whole_sample" />
+			<includeRuleCollection id="sectioned_sample" />
 		</statements>
 	</if>
 	
