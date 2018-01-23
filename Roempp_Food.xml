@@ -12,21 +12,16 @@
 	<ruleCollections>
 		<ruleCollection id="sample">
 			<CvMappingRule id="sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
-				<CvTerm termAccession="IMS:1001500" useTerm="false" termName="sample type" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
+				<CvTerm termAccession="IMS:1001524" useTerm="true" termName="food sample" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<!-- Move the below CvTerm to "sample"? -->
 				<CvTerm termAccession="IMS:1001602" useTerm="true" termName="sample origin institution" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<!-- specimen species: ncbitaxon.obo? but is large -->
 				<CvTerm termAccession="IMS:1006005" useTerm="true" termName="sample species" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006006" useTerm="true" termName="sample organ" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<!-- specimen organ: BTO ontology -->
 				<CvTerm termAccession="IMS:1006007" useTerm="true" termName="sample condition" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="PATO:0000047" useTerm="false" termName="biological sex" isRepeatable="false" allowChildren="true" cvIdentifierRef="PATO"/>
 				<CvTerm termAccession="IMS:1006004" useTerm="true" termName="age" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002010" useTerm="false" termName="sample storage condition" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006013" useTerm="true" termName="sample morphological classification" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006014" useTerm="true" termName="sampling location" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002005" useTerm="true" termName="sampling method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006003" useTerm="true" termName="postmortem time" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002050" useTerm="false" termName="stabilisation" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006008" useTerm="true" termName="optical image location" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006010" useTerm="false" termName="optical image subject" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
@@ -43,7 +38,6 @@
 		<ruleCollection id="biological_sample">
 			<CvMappingRule id="biological_sample_must" cvElementPath="/mzML/sampleList/sample/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/sampleList/sample" cvTermsCombinationLogic="AND">
 				<!-- Moved majority of the potentially biologically specific samples to the "sample" rule collection to enable the user to make the decision -->
-				<CvTerm termAccession="IMS:1001601" useTerm="true" termName="sample ethical approval" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 		</ruleCollection>
 			
@@ -205,7 +199,7 @@
 			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002001" termName="sectioned sample" />
 		</conditions>
 		<statements>
-			<includeRuleCollection id="sectioned_sample" />
+			<includeRuleCollection id="whole_sample" />
 		</statements>
 	</if>
 	

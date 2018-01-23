@@ -657,6 +657,20 @@ def: "" [COMPUTIS:IMS]
 is_a: IMS:1001522 ! clinical sample
 
 [Term]
+id: IMS:1001524
+name: food sample
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1001520 ! biological sample
+
+[Term]
+id: IMS:1001525
+name: bacteria sample
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1001520 ! biological sample
+
+[Term]
 id: IMS:1001600
 name: sample origin attribute
 def: "" [COMPUTIS:IMS]
@@ -783,6 +797,20 @@ id: IMS:1002019
 name: flash frozen
 def: "Flash frozen by slow immersion in liquid nitrogen cooled isopentane." [COMPUTIS:IMS]
 is_a: IMS:1002016 ! freezing method
+
+[Term]
+id: IMS:1002020
+name: sample storage time before analysis
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1002014 ! sample storage attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+relationship: has_units UO:0000032 ! hour
+relationship: has_units UO:0000033 ! day
+relationship: has_units UO:0000034 ! week
+relationship: has_units UO:0000035 ! month
+relationship: has_units UO:0000036 ! year
 
 [Term]
 id: IMS:1002050
