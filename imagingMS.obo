@@ -1065,6 +1065,11 @@ name: lz4 compression
 def: "LZ4 compression." [COMPUTIS:IMS]
 is_a: MS:1000572 ! binary data compression type
 
+[Term]
+id: IMS:1005003
+name: zstd compression
+def: "Zstandard compression." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
 
 [Term]
 id: IMS:1006000
