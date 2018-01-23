@@ -1060,6 +1060,13 @@ def: "XZ." [COMPUTIS:IMS]
 is_a: MS:1000572 ! binary data compression type
 
 [Term]
+id: IMS:1005002
+name: lz4 compression
+def: "LZ4 compression." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+
+[Term]
 id: IMS:1006000
 name: repetition rate
 def: "Describes the number of pulses per second when a laser is operating in pulsed mode." [COMPUTIS:IMS]
@@ -1096,3 +1103,84 @@ relationship: has_units UO:0000034 ! week
 relationship: has_units UO:0000035 ! month
 relationship: has_units UO:0000036 ! year
 
+[Term]
+id: IMS:1006004
+name: age
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+relationship: has_units UO:0000010 ! second
+relationship: has_units UO:0000031 ! minute
+relationship: has_units UO:0000032 ! hour
+relationship: has_units UO:0000033 ! day
+relationship: has_units UO:0000034 ! week
+relationship: has_units UO:0000035 ! month
+relationship: has_units UO:0000036 ! year
+
+[Term]
+id: IMS:1006005
+name: sample species
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1006006
+name: sample organ
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1006007
+name: sample condition
+def: "Description of whether the sample is wildtype, diseased, control." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1006008
+name: optical image location
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1006009
+name: optical image attribute
+def: "" [COMPUTIS:IMS]
+part_of: MS:1006008 ! sample attribute
+
+[Term]
+id: IMS:1006010
+name: optical image subject
+def: "" [COMPUTIS:IMS]
+is_a: IMS:1006009 ! optical image attribute
+
+[Term]
+id: IMS:1006011
+name: optical image of analysed sample
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1006010 ! optical image subject
+
+[Term]
+id: IMS:1006012
+name: optical image of adjacent section of analysed sample
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1006010 ! optical image subject
+
+[Term]
+id: IMS:1006013
+name: sample morphological classification
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
+
+[Term]
+id: IMS:1006014
+name: sampling location
+def: "" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: MS:1000548 ! sample attribute
