@@ -30,8 +30,6 @@
 				<CvTerm termAccession="IMS:1002050" useTerm="false" termName="stabilisation" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006008" useTerm="true" termName="optical image location" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1006010" useTerm="false" termName="optical image subject" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006017" useTerm="true" termName="method used to align optical image" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006015" useTerm="true" termName="staining method used for optical image" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002000" useTerm="false" termName="analysed sample portion" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1000202" useTerm="true" termName="target material" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 				<CvTerm termAccession="IMS:1002200" useTerm="true" termName="mounting method" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
@@ -126,7 +124,6 @@
 		<statements>
 			<CvMappingRule id="source_general_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/source" cvTermsCombinationLogic="AND">
 				<CvTerm termAccession="IMS:1000011" useTerm="false" termName="probe mode" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-				<CvTerm termAccession="IMS:1006016" useTerm="true" termName="ion source model" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
 			</CvMappingRule>
 			<CvMappingRule id="detector_general_must" cvElementPath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/detector/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/instrumentConfigurationList/instrumentConfiguration/componentList/detector" cvTermsCombinationLogic="AND">
 				<!-- is this the correct place for this? correct terms? there's one for spectrum resolution rather than detector -->
@@ -206,7 +203,6 @@
 	<if> <!-- Sectioned Sample -->
 		<conditions combinationLogic="OR">
 			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002001" termName="sectioned sample" />
-			<condition exists="TERM" scopePath="/mzML/sampleList/sample" termAccession="IMS:1002003" termName="blockface sample" />
 		</conditions>
 		<statements>
 			<includeRuleCollection id="sectioned_sample" />

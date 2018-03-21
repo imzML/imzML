@@ -629,64 +629,64 @@ relationship: part_of MS:1000457 ! sample
 [Term]
 id: IMS:1001510
 name: inorganic sample
-def: "" [COMPUTIS:IMS]
+def: "A sample not consisting of or deriving from living matter." [COMPUTIS:IMS]
 is_a: IMS:1001500 ! sample type
 
 [Term]
 id: IMS:1001520
 name: organic sample
-def: "" [COMPUTIS:IMS]
+def: "A sample related to or derived from living matter." [COMPUTIS:IMS]
 is_a: IMS:1001500 ! sample type
 
 [Term]
 id: IMS:1001521
 name: biological sample
-def: "" [COMPUTIS:IMS]
+def: "A sample related to biology or living organisms." [COMPUTIS:IMS]
 is_a: IMS:1001520 ! organic sample
 
 [Term]
 id: IMS:1001522
 name: clinical sample
-def: "" [COMPUTIS:IMS]
+def: "A sample related to or deriving from actual patients." [COMPUTIS:IMS]
 is_a: IMS:1001521 ! biological sample
 
 [Term]
 id: IMS:1001523
 name: pathological sample
-def: "" [COMPUTIS:IMS]
+def: "A sample related to pathology." [COMPUTIS:IMS]
 is_a: IMS:1001522 ! clinical sample
 
 [Term]
 id: IMS:1001524
 name: food sample
-def: "" [COMPUTIS:IMS]
+def: "A sample related to or deriving from any nutritious substance." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001520 ! biological sample
 
 [Term]
 id: IMS:1001525
 name: bacteria sample
-def: "" [COMPUTIS:IMS]
+def: "A sample consisting of or related to bacteria." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001520 ! biological sample
 
 [Term]
 id: IMS:1001600
 name: sample origin attribute
-def: "" [COMPUTIS:IMS]
+def: "An attribute related to the origin of the sample." [COMPUTIS:IMS]
 relationship: part_of MS:1000457 ! sample
 
 [Term]
 id: IMS:1001601
 name: sample ethical approval
-def: "" [COMPUTIS:IMS]
+def: "Ethical approval required for experiments to be performed on the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001600 ! sample origin attribute
 
 [Term]
 id: IMS:1001602
 name: sample origin institution
-def: "" [COMPUTIS:IMS]
+def: "Institution at which the sample originated." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1001600 ! sample origin attribute
 
@@ -709,9 +709,15 @@ def: "Analysis performed on entire sample." [COMPUTIS:IMS]
 is_a: IMS:1002000 ! analysed sample portion
 
 [Term]
+id: IMS:1002003
+name: blockface sample
+def: "Analysis performed on the blockface of a cut sample." [COMPUTIS:IMS]
+is_a: IMS:1002000 ! analysed sample portion
+
+[Term]
 id: IMS:1002005
 name: sampling method
-def: "" [COMPUTIS:IMS]
+def: "Method used to extract the sample from a larger encompassing object." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of MS:1000457 ! sample
 
@@ -730,7 +736,7 @@ is_a: IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002012
-name: frozen
+name: fresh frozen
 def: "Sample has been frozen." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002010 ! sample storage condition
@@ -745,13 +751,13 @@ is_a: IMS:1002010 ! sample storage condition
 [Term]
 id: IMS:1002014
 name: sample storage attribute
-def: "" [COMPUTIS:IMS]
+def: "Attribute related to the storage of a sample." [COMPUTIS:IMS]
 relationship: part_of IMS:1002010 ! sample storage condition
 
 [Term]
 id: IMS:1002015
 name: sample storage time before sectioning
-def: "" [COMPUTIS:IMS]
+def: "Duration of time between the sample being acquired and sectioning being performed." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002014 ! sample storage attribute
 relationship: has_units UO:0000010 ! second
@@ -764,8 +770,8 @@ relationship: has_units UO:0000036 ! year
 
 [Term]
 id: IMS:1002016
-name: sample storage time after sectioning and before analysis
-def: "" [COMPUTIS:IMS]
+name: section storage time after sectioning and before analysis
+def: "Duration of time between sectioning having been performed and performing MSI analysis." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002014 ! sample storage attribute
 relationship: has_units UO:0000010 ! second
@@ -779,7 +785,7 @@ relationship: has_units UO:0000036 ! year
 [Term]
 id: IMS:1002017
 name: sample storage temperature
-def: "" [COMPUTIS:IMS]
+def: "Temperature at which the sample was stored prior to analysis." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002014 ! sample storage attribute
 relationship: has_units UO:0000027 ! degree Celsius
@@ -788,7 +794,7 @@ relationship: has_units UO:0000012 ! kelvin
 [Term]
 id: IMS:1002018
 name: freezing method
-def: "" [COMPUTIS:IMS]
+def: "Method used for freezing the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1002012 ! frozen
 
@@ -801,7 +807,7 @@ is_a: IMS:1002016 ! freezing method
 [Term]
 id: IMS:1002020
 name: sample storage time before analysis
-def: "" [COMPUTIS:IMS]
+def: "Duration of time between the sample being acquired and analysis being performed." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1002014 ! sample storage attribute
 relationship: has_units UO:0000010 ! second
@@ -813,34 +819,40 @@ relationship: has_units UO:0000035 ! month
 relationship: has_units UO:0000036 ! year
 
 [Term]
+id: IMS:1002021
+name: sample storage method
+def: "Method used for storing the sample prior to analysis." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+
+[Term]
 id: IMS:1002050
 name: stabilisation
-def: "" [COMPUTIS:IMS]
+def: "Application of a process to make the sample more stable, stopping degradation and changes from occurring." [COMPUTIS:IMS]
 relationship: part_of MS:1000457 ! sample
 
 [Term]
 id: IMS:1002051
 name: no stabilisation performed
-def: "" [COMPUTIS:IMS]
+def: "No stabilisation was performed." [COMPUTIS:IMS]
 is_a: IMS:1002050 ! stabilisation
 
 [Term]
 id: IMS:1002052
 name: stabilisation method
-def: "" [COMPUTIS:IMS]
+def: "Method used to perform stabilisation." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002050 ! stabilisation
 
 [Term]
 id: IMS:1002053
 name: rapid heating stabilisation
-def: "" [COMPUTIS:IMS]
+def: "Stabilisation performed through rapid conductive heating." [COMPUTIS:IMS]
 is_a: IMS:1002051 ! stabilisation method
 
 [Term]
 id: IMS:1002054
 name: focused microwave irradiation stabilisation
-def: "" [COMPUTIS:IMS]
+def: "Stabilisation performed through focused microwave irradiation." [COMPUTIS:IMS]
 is_a: IMS:1002051 ! stabilisation method
 
 [Term]
@@ -851,22 +863,23 @@ relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002101
-name: cryomicrotome sectioning
-def: "Cryomicrotome used to perform sectioning." [COMPUTIS:IMS]
+name: microtome sectioning
+def: "Microtome used to perform sectioning." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1002100 ! sectioning method
 
 [Term]
 id: IMS:1002102
-name: cryomicrotome model
-def: "Specific cryomicrotome model used to perform sectioning." [COMPUTIS:IMS]
+name: microtome model
+def: "Specific microtome model used to perform sectioning." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-relationship: part_of IMS:1002101 ! cryomicrotome sectioning
+relationship: part_of IMS:1002101 ! microtome sectioning
 
 [Term]
 id: IMS:1002103
-name: cryomicrotome sectioning attribute
-def: "Properties of the cryomicrotome sectioning process with an associated value." [COMPUTIS:IMS]
-relationship: part_of IMS:1002101 ! cryomicrotome sectioning
+name: sectioning attribute
+def: "Properties of the microtome sectioning process with an associated value." [COMPUTIS:IMS]
+relationship: part_of IMS:1002101 ! microtome sectioning
 
 [Term]
 id: IMS:1002104
@@ -880,9 +893,24 @@ relationship: has_units UO:0000012 ! kelvin
 [Term]
 id: IMS:1002105
 name: cutting thickness
-def: "Thickness of the section as set on the cryomicrotome." [COMPUTIS:IMS]
+def: "Thickness of the section as set on the microtome." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
-is_a: IMS:1002103 ! cryomicrotome sectioning attribute
+is_a: IMS:1002103 ! sectioning attribute
+relationship: has_units UO:0000017 ! micrometer
+
+[Term]
+id: IMS:1002106
+name: blade sectioning
+def: "Blade used to perform sectioning." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+relationship: part_of IMS:1002100 ! sectioning method
+
+[Term]
+id: IMS:1002107
+name: section thickness
+def: "Measured thickness of the sample after sectioning." [COMPUTIS:IMS]
+xref: value-type:xsd\:float "The allowed value-type for this CV term."
+is_a: IMS:1002103 ! sectioning attribute
 relationship: has_units UO:0000017 ! micrometer
 
 [Term]
@@ -908,20 +936,20 @@ is_a: IMS:1002200 ! mounting method
 [Term]
 id: IMS:1002300
 name: sample drying
-def: "Description of the method used to dry the sample." [COMPUTIS:IMS]
+def: "Application of a process to dry the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002301
 name: drying method attribute
-def: "" [COMPUTIS:IMS]
+def: "Attribute related to the drying of a sample." [COMPUTIS:IMS]
 relationship: part_of IMS:1002300 ! drying method
 
 [Term]
 id: IMS:1002302
 name: drying time
-def: "" [COMPUTIS:IMS]
+def: "Duration of time that the drying procedure was applied." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a IMS:1002301 ! drying method attribute
 relationship: has_units UO:0000010 ! second
@@ -930,161 +958,160 @@ relationship: has_units UO:0000031 ! minute
 [Term]
 id: IMS:1002303
 name: no drying performed
-def: "" [COMPUTIS:IMS]
+def: "No drying process performed." [COMPUTIS:IMS]
 is_a: IMS:1002300 ! sample drying
 
 [Term]
 id: IMS:1002304
 name: sample drying method
-def: "" [COMPUTIS:IMS]
+def: "Description of the method used to dry the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002300 ! sample drying
 
 [Term]
 id: IMS:1002400
 name: sample washing
-def: "" [COMPUTIS:IMS]
+def: "Application of a process to wash the sample." [COMPUTIS:IMS]
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002401
 name: no washing performed
-def: "" [COMPUTIS:IMS]
+def: "No washing method performed." [COMPUTIS:IMS]
 is_a: IMS:1002400 ! sample washing
 
 [Term]
 id: IMS:1002402
 name: sample washing method
-def: "" [COMPUTIS:IMS]
+def: "Method used to perform washing of the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002400 ! sample washing
 
 [Term]
 id: IMS:1002500
 name: on-sample chemistry
-def: "" [COMPUTIS:IMS]
+def: "Additional treatment of the sample, such as enzymatic digestion or derivatisation." [COMPUTIS:IMS]
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002501
 name: no on-sample chemistry performed
-def: "" [COMPUTIS:IMS]
+def: "No on-sample chemistry method performed." [COMPUTIS:IMS]
 is_a: IMS:1002500 ! on-sample chemistry
 
 [Term]
 id: IMS:1002502
 name: on-sample chemistry method
-def: "" [COMPUTIS:IMS]
+def: "Method used to perform on-sample chemistry." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002500 ! on-sample chemistry
 
 [Term]
 id: IMS:1002503
 name: on-sample chemistry attribute
-def: "" [COMPUTIS:IMS]
+def: "Attribute related to the on-sample chemistry." [COMPUTIS:IMS]
 relationship: part_of IMS:1002500 ! on-sample chemistry
 
 [Term]
 id: IMS:1002504
 name: on-sample chemistry reagent
-def: "" [COMPUTIS:IMS]
+def: "Reagent used in the on-sample chemistry process." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002503 ! on-sample chemistry attribute
 
 [Term]
 id: IMS:1002600
 name: in-experiment quantification
-def: "" [COMPUTIS:IMS]
+def: "Quantification integrated into the experiment." [COMPUTIS:IMS]
 relationship: part_of MS:1000831 ! sample preparation
 
 [Term]
 id: IMS:1002601
 name: no in-experiment quantification performed
-def: "" [COMPUTIS:IMS]
+def: "No in-experiment quantification method performed." [COMPUTIS:IMS]
 is_a: IMS:1002600 ! in-experiment quantification
 
 [Term]
 id: IMS:1002602
 name: in-experiment quantification method
-def: "" [COMPUTIS:IMS]
+def: "Method used to perform in-experiment quantification." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1002600 ! in-experiment quantification
 
 [Term]
 id: IMS:1002603
 name: internal standard quantification
-def: "" [COMPUTIS:IMS]
+def: "Quantification performed through application of an internal standard." [COMPUTIS:IMS]
 is_a: IMS:1002602 ! in-experiment quantification method
 
 [Term]
 id: IMS:1002604
 name: adjacent dilution series quantification
-def: "" [COMPUTIS:IMS]
+def: "Quantification performed through a dilution series adjacent to the sample." [COMPUTIS:IMS]
 is_a: IMS:1002602 ! in-experiment quantification method
 
 [Term]
 id: IMS:1002605
 name: sprayed-on standard quantification
-def: "" [COMPUTIS:IMS]
+def: "Quantification performed through application of a standard via spraying." [COMPUTIS:IMS]
 is_a: IMS:1002602 ! in-experiment quantification method
-
 
 [Term]
 id: IMS:1003000
 name: spraying method
-def: "" [COMPUTIS:IMS]
+def: "Method used to perform spraying of a matrix." [COMPUTIS:IMS]
 relationship: part_of MS:1000838 ! sprayed MALDI matrix preparation
 
 [Term]
 id: IMS:1003001
 name: automated spraying of matrix
-def: "" [COMPUTIS:IMS]
+def: "Spraying performed using an automated method, such as a robotic system." [COMPUTIS:IMS]
 is_a: IMS:1003000 ! spray method
 
 [Term]
 id: IMS:1003002
 name: manual spraying of matrix
-def: "" [COMPUTIS:IMS]
+def: "Spraying performed manually by the user, such as with an artistic airbrush." [COMPUTIS:IMS]
 is_a: IMS:1003000 ! spray method
 
 [Term]
 id: IMS:1003003
 name: automated spraying device
-def: "" [COMPUTIS:IMS]
+def: "Robotic system for spraying a matrix." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 relationship: part_of IMS:1003001 ! automated spraying of matrix
 
 [Term]
 id: IMS:1003004
 name: automated sprayer attribute
-def: "" [COMPUTIS:IMS]
+def: "Attribute related to the automatic spraying device." [COMPUTIS:IMS]
 relationship: part_of IMS:1003001 ! automated spraying of matrix
 
 [Term]
 id: IMS:1003005
 name: automated sprayer nozzle movement speed
-def: "" [COMPUTIS:IMS]
+def: "Speed at which the spray head (including the nozzle) moves during spraying of the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1003006
 name: automated sprayer flow-rate
-def: "" [COMPUTIS:IMS]
+def: "Flow-rate used to dispense the solvent to the sprayer." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1003007
 name: automated sprayer nozzle temperature
-def: "" [COMPUTIS:IMS]
+def: "Temperature of the nozzle of the sprayer during spraying." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: IMS:1003004 ! automated spraying attribute
 
 [Term]
 id: IMS:1005001
 name: xz compression
-def: "XZ." [COMPUTIS:IMS]
+def: "XZ compression." [COMPUTIS:IMS]
 is_a: MS:1000572 ! binary data compression type
 
 [Term]
@@ -1117,7 +1144,7 @@ is_a: MS:1000841 ! laser attribute
 [Term]
 id: IMS:1006002
 name: m/z at which resolution was measured
-def: "" [COMPUTIS:IMS]
+def: "m/z at which the mass resolution was measured." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 relationship: part_of MS:1000012 ! resolution measurement method
 relationship: has_units MS:1000040 ! m/z
@@ -1125,7 +1152,7 @@ relationship: has_units MS:1000040 ! m/z
 [Term]
 id: IMS:1006003
 name: postmortem time
-def: "" [COMPUTIS:IMS]
+def: "Time after sacrifice and before sampling occurs." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 relationship: has_units UO:0000010 ! second
@@ -1139,7 +1166,7 @@ relationship: has_units UO:0000036 ! year
 [Term]
 id: IMS:1006004
 name: age
-def: "" [COMPUTIS:IMS]
+def: "Age of the sample at time of analysis." [COMPUTIS:IMS]
 xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 relationship: has_units UO:0000010 ! second
@@ -1153,14 +1180,14 @@ relationship: has_units UO:0000036 ! year
 [Term]
 id: IMS:1006005
 name: sample species
-def: "" [COMPUTIS:IMS]
+def: "Species of the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 
 [Term]
 id: IMS:1006006
 name: sample organ
-def: "" [COMPUTIS:IMS]
+def: "Analysed organ." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 
@@ -1174,46 +1201,68 @@ is_a: MS:1000548 ! sample attribute
 [Term]
 id: IMS:1006008
 name: optical image location
-def: "" [COMPUTIS:IMS]
+def: "Uniform resource identifier (URI) for the location of the optical image corresponding to the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 
 [Term]
 id: IMS:1006009
 name: optical image attribute
-def: "" [COMPUTIS:IMS]
+def: "Attribute related to the optical image." [COMPUTIS:IMS]
 part_of: MS:1006008 ! sample attribute
 
 [Term]
 id: IMS:1006010
 name: optical image subject
-def: "" [COMPUTIS:IMS]
+def: "Subject of the optical image." [COMPUTIS:IMS]
 is_a: IMS:1006009 ! optical image attribute
 
 [Term]
 id: IMS:1006011
 name: optical image of analysed sample
-def: "" [COMPUTIS:IMS]
+def: "Subject of the optical image is the exact sample that was analysed." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1006010 ! optical image subject
 
 [Term]
 id: IMS:1006012
 name: optical image of adjacent section of analysed sample
-def: "" [COMPUTIS:IMS]
+def: "Subject of the optical image is an adjacent section to the analysed section." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: IMS:1006010 ! optical image subject
 
 [Term]
 id: IMS:1006013
 name: sample morphological classification
-def: "" [COMPUTIS:IMS]
+def: "Morphological classification of the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
 
 [Term]
 id: IMS:1006014
 name: sampling location
-def: "" [COMPUTIS:IMS]
+def: "OBSOLETE Location at which the sample was taken from the specimen." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
 is_a: MS:1000548 ! sample attribute
+comment: This is unneccessary as IMS:1006013 (sample morphological classification) should cover this information.
+is_obsolete: true
+
+[Term]
+id: IMS:1006015
+name: staining method used for optical image 
+def: "Method used for staining the sample prior to optical imaging." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1006010 ! optical image subject
+
+[Term]
+id: IMS:1006016
+name: ion source model
+def: "Model name and number of the ion source used." [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+
+[Term]
+id: IMS:1006017
+name: method used to align optical image 
+def: "method used to align optical image with MSI data" [COMPUTIS:IMS]
+xref: value-type:xsd\:string "The allowed value-type for this CV term."
+is_a: IMS:1006009 ! optical image attribute
