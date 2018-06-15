@@ -29,16 +29,22 @@
         </CvMappingRule>
 		
         <!-- scansettings  -->
-        <CvMappingRule id="imzml_scansettings_must" cvElementPath="/mzML/scanSettingsList/scanSettings/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/scanSettingsList/scanSettings" cvTermsCombinationLogic="AND">
+		<CvMappingRule id="imzml_scansettings_must" cvElementPath="/mzML/scanSettingsList/scanSettings/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/scanSettingsList/scanSettings" cvTermsCombinationLogic="AND">
+            <CvTerm termAccession="IMS:1000042" useTerm="true" termName="max count of pixels x" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+            <CvTerm termAccession="IMS:1000043" useTerm="true" termName="max count of pixels y" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+			<CvTerm termAccession="IMS:1000046" useTerm="true" termName="pixel size (x)" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+        </CvMappingRule>
+        <CvMappingRule id="imzml_scansettings_should" cvElementPath="/mzML/scanSettingsList/scanSettings/cvParam/@accession" requirementLevel="SHOULD" scopePath="/mzML/scanSettingsList/scanSettings" cvTermsCombinationLogic="AND">
             <CvTerm termAccession="IMS:1000040" useTerm="false" termName="scan direction" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000041" useTerm="false" termName="scan pattern" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000048" useTerm="false" termName="scan type" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000049" useTerm="false" termName="line scan direction" isRepeatable="false" allowChildren="true" cvIdentifierRef="IMS"/>
-            <CvTerm termAccession="IMS:1000042" useTerm="true" termName="max count of pixels x" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
-            <CvTerm termAccession="IMS:1000043" useTerm="true" termName="max count of pixels y" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
-        </CvMappingRule>
+			<CvTerm termAccession="IMS:1000044" useTerm="true" termName="max dimension x" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+			<CvTerm termAccession="IMS:1000045" useTerm="true" termName="max dimension y" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+		</CvMappingRule>
         <CvMappingRule id="imzml_scansettings_may" cvElementPath="/mzML/scanSettingsList/scanSettings/cvParam/@accession" requirementLevel="MAY" scopePath="/mzML/scanSettingsList/scanSettings" cvTermsCombinationLogic="OR">
-            <CvTerm termAccession="IMS:1000004" useTerm="false" termName="image" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
+            <CvTerm termAccession="IMS:1000004" useTerm="false" termName="image property" isRepeatable="true" allowChildren="true" cvIdentifierRef="IMS"/>
+			<CvTerm termAccession="IMS:1000047" useTerm="true" termName="pixel size y" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
         </CvMappingRule>
 
         <!-- scan -->
@@ -52,11 +58,14 @@
                 
         <!-- spectrum binary data array -->
         <CvMappingRule id="imzml_spectrum_binarydataarray_must" cvElementPath="/mzML/run/spectrumList/spectrum/binaryDataArrayList/binaryDataArray/cvParam/@accession" requirementLevel="MUST" scopePath="/mzML/run/spectrumList/spectrum/binaryDataArrayList/binaryDataArray" cvTermsCombinationLogic="AND">
-            <CvTerm termAccession="IMS:1000101" useTerm="true" termName="external data" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000102" useTerm="true" termName="external offset" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000103" useTerm="true" termName="external array length" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
             <CvTerm termAccession="IMS:1000104" useTerm="true" termName="external encoded length" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
         </CvMappingRule>
+		
+		<CvMappingRule id="imzml_spectrum_binarydataarray_may" cvElementPath="/mzML/run/spectrumList/spectrum/binaryDataArrayList/binaryDataArray/cvParam/@accession" requirementLevel="MAY" scopePath="/mzML/run/spectrumList/spectrum/binaryDataArrayList/binaryDataArray" cvTermsCombinationLogic="AND">
+            <CvTerm termAccession="IMS:1000101" useTerm="true" termName="external data" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+		</CvMappingRule>
 
     </CvMappingRuleList>
 </CvMapping>

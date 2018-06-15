@@ -132,7 +132,7 @@
 				<!-- is this the correct place for this? correct terms? there's one for spectrum resolution rather than detector -->
 				<CvTerm termAccession="MS:1000012" useTerm="false" termName="resolution measurement method" isRepeatable="false" allowChildren="true" cvIdentifierRef="MS"/>
 				<CvTerm termAccession="MS:1000028" useTerm="true" termName="detector resolution" isRepeatable="false" allowChildren="false" cvIdentifierRef="MS"/>
-				<CvTerm termAccession="IMS:1006002" useTerm="true" termName="m/z at which resolution was measured" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>
+				<!--<CvTerm termAccession="IMS:1006002" useTerm="true" termName="m/z at which resolution was measured" isRepeatable="false" allowChildren="false" cvIdentifierRef="IMS"/>-->
 			</CvMappingRule>
 			<includeRuleCollection id="sample" />
 		</statements>

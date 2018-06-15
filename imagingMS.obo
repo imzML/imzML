@@ -1142,14 +1142,6 @@ xref: value-type:xsd\:float "The allowed value-type for this CV term."
 is_a: MS:1000841 ! laser attribute
 
 [Term]
-id: IMS:1006002
-name: m/z at which resolution was measured
-def: "m/z at which the mass resolution was measured." [COMPUTIS:IMS]
-xref: value-type:xsd\:float "The allowed value-type for this CV term."
-relationship: part_of MS:1000012 ! resolution measurement method
-relationship: has_units MS:1000040 ! m/z
-
-[Term]
 id: IMS:1006003
 name: postmortem time
 def: "Time after sacrifice and before sampling occurs." [COMPUTIS:IMS]
@@ -1203,7 +1195,7 @@ id: IMS:1006008
 name: optical image location
 def: "Uniform resource identifier (URI) for the location of the optical image corresponding to the sample." [COMPUTIS:IMS]
 xref: value-type:xsd\:string "The allowed value-type for this CV term."
-is_a: MS:1000548 ! sample attribute
+is_a: IMS:1006009 ! optical image attribute
 
 [Term]
 id: IMS:1006009
