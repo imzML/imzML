@@ -1127,6 +1127,82 @@ def: "Zstandard compression." [COMPUTIS:IMS]
 is_a: MS:1000572 ! binary data compression type
 
 [Term]
+id: IMS:1005004
+name: MS-Numpress linear prediction and xz compression
+def: "Combination of  MS:1002312 (MS-Numpress linear prediction compression) and IMS:1005001 (XZ compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005005
+name: MS-Numpress positive integer and xz compression
+def: "Combination of  MS:1002313 (MS-Numpress positive integer compression) and IMS:1005001 (XZ compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005006
+name: MS-Numpress short logged float and xz compression
+def: "Combination of  MS:1002314 (MS-Numpress short logged float compression) and IMS:1005001 (XZ compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005007
+name: MS-Numpress linear prediction and lz4 compression
+def: "Combination of  MS:1002312 (MS-Numpress linear prediction compression) and IMS:1005002 (LZ4 compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005008
+name: MS-Numpress positive integer and lz4 compression
+def: "Combination of  MS:1002313 (MS-Numpress positive integer compression) and IMS:1005002 (LZ4 compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005009
+name: MS-Numpress short logged float and lz4 compression
+def: "Combination of  MS:1002314 (MS-Numpress short logged float compression) and IMS:1005002 (LZ4 compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+
+[Term]
+id: IMS:1005010
+name: MS-Numpress linear prediction and Zstandard compression
+def: "Combination of  MS:1002312 (MS-Numpress linear prediction compression) and IMS:1005003 (zstd compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005011
+name: MS-Numpress positive integer and Zstandard compression
+def: "Combination of  MS:1002313 (MS-Numpress positive integer compression) and IMS:1005003 (zstd compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005012
+name: MS-Numpress short logged float and Zstandard compression
+def: "Combination of  MS:1002314 (MS-Numpress short logged float compression) and IMS:1005003 (zstd compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+
+[Term]
+id: IMS:1005013
+name: MS-Numpress linear prediction and zlib compression
+def: "Combination of  MS:1002312 (MS-Numpress linear prediction compression) and MS:1000574 (zlib compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005014
+name: MS-Numpress positive integer and zlib compression
+def: "Combination of  MS:1002313 (MS-Numpress positive integer compression) and MS:1000574 (zlib compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+[Term]
+id: IMS:1005015
+name: MS-Numpress short logged float and zlib compression
+def: "Combination of  MS:1002314 (MS-Numpress short logged float compression) and MS:1000574 (zlib compression)." [COMPUTIS:IMS]
+is_a: MS:1000572 ! binary data compression type
+
+
+
+[Term]
 id: IMS:1006000
 name: repetition rate
 def: "Describes the number of pulses per second when a laser is operating in pulsed mode." [COMPUTIS:IMS]
