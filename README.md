@@ -1,3 +1,3 @@
 # imzML
 
-Specification files for the mass spectrometry imaging (MSI) format imzML (imzml.org/).
+Specification files for the mass spectrometry imaging (MSI) format imzML ([http://imzml.org/](http://imzml.org/)).
